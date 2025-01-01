@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.brown),
+
         useMaterial3: true,
       ),
       home: const MyHomePage(),
@@ -54,21 +55,28 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int selectedIndex = 0;
 
-  void _incrementCounter() {
+  void handleOnTap(newIndex) {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+      selectedIndex = newIndex;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    Widget currentWidgetPage = const Text("aaaaa");
+    switch (selectedIndex) {
+      case 0:
+        currentWidgetPage = const Text("bbb");
+        break;
+      case 1:
+        currentWidgetPage = const OffersPage();
+        break;
+      case 2:
+        currentWidgetPage = const Text("Orders page");
+        break;
+    }
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -80,12 +88,37 @@ class _MyHomePageState extends State<MyHomePage> {
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
         // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Theme.of(context).primaryColor,
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Image.asset("images/logo.png"),
+
+        title: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(child: Image.asset("images/logo.png")),
+        ),
       ),
-      body: OffersPage(),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: selectedIndex,
+        onTap: handleOnTap,
+        backgroundColor: Theme.of(context).primaryColor,
+        selectedItemColor: Colors.yellow.shade400,
+        unselectedItemColor: Colors.brown.shade50,
+        items: const [
+          BottomNavigationBarItem(
+            label: "Menu",
+            icon: Icon(Icons.coffee),
+          ),
+          BottomNavigationBarItem(
+            label: "Offers",
+            icon: Icon(Icons.local_offer),
+          ),
+          BottomNavigationBarItem(
+            label: "orders",
+            icon: Icon(Icons.shopping_cart_checkout_outlined),
+          ),
+        ],
+      ),
+      body: currentWidgetPage,
     );
   }
 }
