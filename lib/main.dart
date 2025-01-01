@@ -1,4 +1,7 @@
-import 'package:coffee_masters/offersPage.dart';
+import 'package:coffee_masters/pages/offerspage.dart';
+import 'package:coffee_masters/pages/menupage.dart';
+import 'package:coffee_masters/pages/orderpage.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -65,16 +68,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    Widget currentWidgetPage = const Text("aaaaa");
+    Widget currentWidgetPage = const MenuPage();
     switch (selectedIndex) {
       case 0:
-        currentWidgetPage = const Text("bbb");
+        currentWidgetPage = const MenuPage();
         break;
       case 1:
         currentWidgetPage = const OffersPage();
         break;
       case 2:
-        currentWidgetPage = const Text("Orders page");
+        currentWidgetPage = const OrderPage();
         break;
     }
     // This method is rerun every time setState is called, for instance as done
