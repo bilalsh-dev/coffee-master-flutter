@@ -1,3 +1,4 @@
+import 'package:coffee_masters/datamanager.dart';
 import 'package:coffee_masters/pages/offerspage.dart';
 import 'package:coffee_masters/pages/menupage.dart';
 import 'package:coffee_masters/pages/orderpage.dart';
@@ -68,16 +69,22 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    Widget currentWidgetPage = const MenuPage();
+    Widget currentWidgetPage = MenuPage(
+      dataManager: DataManager(),
+    );
     switch (selectedIndex) {
       case 0:
-        currentWidgetPage = const MenuPage();
+        currentWidgetPage = MenuPage(
+          dataManager: DataManager(),
+        );
         break;
       case 1:
         currentWidgetPage = const OffersPage();
         break;
       case 2:
-        currentWidgetPage = const OrderPage();
+        currentWidgetPage = OrderPage(
+          dataManager: DataManager(),
+        );
         break;
     }
     // This method is rerun every time setState is called, for instance as done
