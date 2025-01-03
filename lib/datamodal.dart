@@ -3,6 +3,8 @@ class Product {
   String name;
   double price;
   String image;
+  String get imageUrl =>
+      'https://firtman.github.io/coffeemasters/api/images/${image}';
 
   Product({
     required this.id,
@@ -10,6 +12,14 @@ class Product {
     required this.price,
     required this.image,
   });
+
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+        id: json['id'] as int,
+        name: json['name'],
+        price: json['price'],
+        image: json['image']);
+  }
 }
 
 class Category {
@@ -20,6 +30,13 @@ class Category {
     required this.name,
     required this.products,
   });
+
+  factory Category.fromJson(Map<String, dynamic> json) {
+    var productsJson = json['products'] as Iterable<dynamic>;
+    var products =
+        productsJson.map((product) => Product.fromJson(product)).toList();
+    return Category(name: json['name'] as String, products: products);
+  }
 }
 
 class ItemInCart {
