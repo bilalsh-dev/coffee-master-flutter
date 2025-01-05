@@ -7,18 +7,6 @@ class DataManager {
   List<Category>? _menu;
   List<ItemInCart> cart = [];
 
-  // fetchMenu() async {
-  //   const url = "https://firtman.github.io/coffeemasters/api/menu.json";
-  //   var response = await http.get(Uri.parse(url));
-  //   if (response.statusCode == 200) {
-  //     var body = response.body;
-  //     _menu = [];
-  //     var decodeData = jsonDecode(body) as List<dynamic>;
-  //     for (var json in decodeData) {
-  //       _menu!.add(Category(name: json['name'], products: json['products']));
-  //     }
-  //   }
-  // }
   fetchMenu() async {
     try {
       const url = 'https://firtman.github.io/coffeemasters/api/menu.json';
@@ -66,7 +54,7 @@ class DataManager {
     cart.clear();
   }
 
-  double cartTotal(Product p) {
+  double cartTotal() {
     double total = 0.0;
     for (var item in cart) {
       total += item.quantity * item.product.price;
