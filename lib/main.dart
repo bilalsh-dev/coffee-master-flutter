@@ -60,7 +60,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int selectedIndex = 0;
-
+  DataManager dataManager = DataManager();
   void handleOnTap(newIndex) {
     setState(() {
       selectedIndex = newIndex;
@@ -70,12 +70,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     Widget currentWidgetPage = MenuPage(
-      dataManager: DataManager(),
+      dataManager: dataManager,
     );
     switch (selectedIndex) {
       case 0:
         currentWidgetPage = MenuPage(
-          dataManager: DataManager(),
+          dataManager: dataManager,
         );
         break;
       case 1:
@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 2:
         currentWidgetPage = OrderPage(
-          dataManager: DataManager(),
+          dataManager: dataManager,
         );
         break;
     }
