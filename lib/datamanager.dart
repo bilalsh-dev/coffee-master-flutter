@@ -50,7 +50,7 @@ class DataManager {
     cart.removeWhere((item) => item.product.id == p.id);
   }
 
-  cartClear(Product p) {
+  cartClear() {
     cart.clear();
   }
 
