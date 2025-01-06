@@ -5,37 +5,39 @@ class OffersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: const [
-        Offer(
-          title: "My great Offer",
-          description: "Buy 1 get 10 for free",
-        ),
-        Offer(
-          title: "My great Offer",
-          description: "Buy 1 get 10 for free",
-        ),
-        Offer(
-          title: "My great Offer",
-          description: "Buy 1 get 10 for free",
-        ),
-        Offer(
-          title: "My great Offer",
-          description: "Buy 1 get 10 for free",
-        ),
-        Offer(
-          title: "My great Offer",
-          description: "Buy 1 get 10 for free",
-        ),
-        Offer(
-          title: "My great Offer",
-          description: "Buy 1 get 10 for free",
-        ),
-        Offer(
-          title: "My great Offer",
-          description: "Buy 1 get 10 for free",
-        ),
-      ],
+    return const Center(
+      child: Wrap(
+        children: [
+          Offer(
+            title: "My great Offer",
+            description: "Buy 1 get 10 for free",
+          ),
+          Offer(
+            title: "My great Offer",
+            description: "Buy 1 get 10 for free",
+          ),
+          Offer(
+            title: "My great Offer",
+            description: "Buy 1 get 10 for free",
+          ),
+          Offer(
+            title: "My great Offer",
+            description: "Buy 1 get 10 for free",
+          ),
+          Offer(
+            title: "My great Offer",
+            description: "Buy 1 get 10 for free",
+          ),
+          Offer(
+            title: "My great Offer",
+            description: "Buy 1 get 10 for free",
+          ),
+          Offer(
+            title: "My great Offer",
+            description: "Buy 1 get 10 for free",
+          ),
+        ],
+      ),
     );
   }
 }
@@ -53,6 +55,7 @@ class Offer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 150,
+      width: 300,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Card(
