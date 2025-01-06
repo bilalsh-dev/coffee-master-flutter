@@ -10,7 +10,7 @@ class OffersPage extends StatelessWidget {
         children: [
           Offer(
             title: "Early Coffee",
-            description: "10% off. Offer valid from 6am to 9am.",
+            description: "10% off from 6am to 9am.",
           ),
           Offer(
             title: "Welcome Gift",
